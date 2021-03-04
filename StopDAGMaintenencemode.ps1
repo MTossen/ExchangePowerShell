@@ -10,6 +10,6 @@ Set-ServerComponentState "$EXCH01" -Component HubTransport -State Active -Reques
 Write-Host "Redistributing databases" -ForegroundColor Green
 
 cd "C:\Program Files\Microsoft\Exchange Server\V15\script" 
-RedistributeActiveDatabases.ps1 -DagName "$DAG" -BalanceDbsByActivationPreference -SkipMoveSuppressionChecks
+RedistributeActiveDatabases.ps1 -DagName "$DAG" -BalanceDbsByActivationPreference -SkipMoveSuppressionChecks -Cpnfirm:$false
 
 Write-Host "Server is now taken out of maintanence mode and databases redistributed." -ForegroundColor Green
