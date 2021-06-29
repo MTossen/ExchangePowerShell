@@ -1,8 +1,10 @@
+$URL = Read-Host "Enter URL (e.g. https://mail.domain.com)
+
 Remove-OwaVirtualDirectory “$env:computername\owa (Default Web Site)”
-New-OwaVirtualDirectory  -InternalUrl “https://webmail.vejlebrand.dk/owa” -ExternalUrl “https://webmail.vejlebrand.dk/owa”
+New-OwaVirtualDirectory  -InternalUrl “$URL/owa” -ExternalUrl “$URL/owa”
 
 Remove-EcpVirtualDirectory -Identity “$env:computername\ecp (Default Web Site)”
-New-EcpVirtualDirectory  -InternalUrl “https://webmail.vejlebrand.dk/ecp” -ExternalUrl  “https://webmail.vejlebrand.dk/ecp”
+New-EcpVirtualDirectory  -InternalUrl “$URL/ecp” -ExternalUrl  “$URL/ecp”
 
 remove-WebApplication -Site "Exchange Back End" -Name owa
 remove-WebApplication -Site "Exchange Back End" -Name ecp
